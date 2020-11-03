@@ -8,7 +8,7 @@ module.exports = [
     owns: false
   },
   {
-    name: 'Lewis',
+    name: 'Levis',
     make: 'BMW',
     model: 'Z3',
     cool_factor: 7,
