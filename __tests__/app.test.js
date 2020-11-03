@@ -31,34 +31,68 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-  test('returns animals', async() => {
+    test('returns cars', async() => {
 
-    const expectation = [
-      {
-        'id': 1,
-        'name': 'bessie',
-        'coolfactor': 3,
-        'owner_id': 1
-      },
-      {
-        'id': 2,
-        'name': 'jumpy',
-        'coolfactor': 4,
-        'owner_id': 1
-      },
-      {
-        'id': 3,
-        'name': 'spot',
-        'coolfactor': 10,
-        'owner_id': 1
-      }
-    ];
+      const expectation = [
+        {
+          id: 1,
+          name: 'Fernando',
+          make: 'Ferrari',
+          model: 'LaFerrari',
+          cool_factor: 10,
+          img: 'https://api.ferrarinetwork.ferrari.com/v2/network-content/medias/resize/5ddb97392cdb32285a799dfa-laferrari-2013-share?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF&width=1080',
+          owns: false,
+          owner_id: 1
+        },
+        {
+          id: 2,
+          name: 'Levis',
+          make: 'BMW',
+          model: 'Z3',
+          cool_factor: 7,
+          img: 'https://cvluxurycars.com/wp-content/uploads/2019/05/1997-BMW-Z3-Atlantic-Blue-7.jpg',
+          owns: true,
+          owner_id: 1
+        },
+        {
+          id: 3,
+          name: 'Lewis',
+          make: 'Toyota',
+          model: 'Prius',
+          cool_factor: 0,
+          img: 'https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/800x450/format/jpg/quality/85/http://www.blogcdn.com/www.autoblog.com/media/2009/05/prius2010_rev000_opt.jpg',
+          owns: true,
+          owner_id: 1
+        }
+      ];
 
-    const data = await fakeRequest(app)
-      .get('/animals')
-      .expect('Content-Type', /json/)
-      .expect(200);
+      const data = await fakeRequest(app)
+        .get('/cars')
+        .expect('Content-Type', /json/)
+        .expect(200);
 
-    expect(data.body).toEqual(expectation);
+      expect(data.body).toEqual(expectation);
+    });
+    test('returns one car', async() => {
+
+      const expectation =
+        {
+          id: 1,
+          name: 'Fernando',
+          make: 'Ferrari',
+          model: 'LaFerrari',
+          cool_factor: 10,
+          img: 'https://api.ferrarinetwork.ferrari.com/v2/network-content/medias/resize/5ddb97392cdb32285a799dfa-laferrari-2013-share?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF&width=1080',
+          owns: false,
+          owner_id: 1
+        };
+
+      const data = await fakeRequest(app)
+        .get('/cars/1')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
   });
 });
