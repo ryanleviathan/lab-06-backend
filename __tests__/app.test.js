@@ -127,11 +127,11 @@ describe('app routes', () => {
       expect(allCars.body.length).toEqual(4);
     });
 
-    test('updates with new resource', async() => {
+    test('updates resource', async() => {
 
       const expectation =
         {
-          id: 5,
+          id: 3,
           name: 'Francis',
           make: 'Toyota',
           model: 'Prius',
@@ -142,7 +142,7 @@ describe('app routes', () => {
         };
 
       const data = await fakeRequest(app)
-        .post('/cars/')
+        .put('/cars/3')
         .send(expectation)
         .expect('Content-Type', /json/)
         .expect(200);
@@ -153,19 +153,19 @@ describe('app routes', () => {
     test('deletes car from db', async() => {
 
       const expectation =
-        {
-          id: 5,
-          name: 'Francis',
-          make: 'Toyota',
-          model: 'Prius',
-          cool_factor: 5,
-          img: 'https://i.redd.it/npq76exuijdz.jpg',
-          owns: true,
-          owner_id: 1
-        };
+      {
+        id: 4,
+        name: 'Larry',
+        make: 'Ford',
+        model: 'Bronco',
+        cool_factor: 9,
+        img: 'https://bringatrailer.com/wp-content/uploads/2019/10/1970_ford_bronco_15732549363ef93835IMG_0235-e1573674055886.jpg?fit=940%2C628',
+        owns: false,
+        owner_id: 1
+      };
 
       const data = await fakeRequest(app)
-        .delete('/cars/5')
+        .delete('/cars/4')
         .send(expectation)
         .expect('Content-Type', /json/)
         .expect(200);
@@ -178,7 +178,7 @@ describe('app routes', () => {
         .expect(200);
 
       expect(data.body).toEqual(expectation);
-      expect(allCars.body.length).toEqual(4);
+      expect(allCars.body.length).toEqual(3);
     });
   });
 });
