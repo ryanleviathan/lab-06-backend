@@ -41,8 +41,7 @@ describe('app routes', () => {
           model: 'LaFerrari',
           cool_factor: 10,
           img: 'https://api.ferrarinetwork.ferrari.com/v2/network-content/medias/resize/5ddb97392cdb32285a799dfa-laferrari-2013-share?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF&width=1080',
-          owns: false,
-          owner_id: 1
+          owns: false
         },
         {
           id: 2,
@@ -51,8 +50,7 @@ describe('app routes', () => {
           model: 'Z3',
           cool_factor: 7,
           img: 'https://cvluxurycars.com/wp-content/uploads/2019/05/1997-BMW-Z3-Atlantic-Blue-7.jpg',
-          owns: true,
-          owner_id: 1
+          owns: true
         },
         {
           id: 3,
@@ -61,8 +59,7 @@ describe('app routes', () => {
           model: 'Prius',
           cool_factor: 0,
           img: 'https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/800x450/format/jpg/quality/85/http://www.blogcdn.com/www.autoblog.com/media/2009/05/prius2010_rev000_opt.jpg',
-          owns: true,
-          owner_id: 1
+          owns: true
         }
       ];
 
@@ -84,8 +81,7 @@ describe('app routes', () => {
           model: 'LaFerrari',
           cool_factor: 10,
           img: 'https://api.ferrarinetwork.ferrari.com/v2/network-content/medias/resize/5ddb97392cdb32285a799dfa-laferrari-2013-share?apikey=9QscUiwr5n0NhOuQb463QEKghPrVlpaF&width=1080',
-          owns: false,
-          owner_id: 1
+          owns: false
         };
 
       const data = await fakeRequest(app)
@@ -102,12 +98,12 @@ describe('app routes', () => {
         {
           id: 4,
           name: 'Larry',
-          make: 'Ford',
-          model: 'Bronco',
+          make_id: 3,
+          model: 'AE86',
           cool_factor: 9,
-          img: 'https://bringatrailer.com/wp-content/uploads/2019/10/1970_ford_bronco_15732549363ef93835IMG_0235-e1573674055886.jpg?fit=940%2C628',
-          owns: false,
-          owner_id: 1
+          img: 'https://cdn.shopify.com/s/files/1/1063/6350/products/78529309_521411808440697_6383374592261488640_n_8d35f07f-396e-46cd-90e5-798d47fd3c11_1000x1000.jpg?v=1575005512',
+          owner_id: 1,
+          owns: false
         };
 
       const data = await fakeRequest(app)
@@ -133,12 +129,12 @@ describe('app routes', () => {
         {
           id: 3,
           name: 'Francis',
-          make: 'Toyota',
+          make_id: 3,
           model: 'Prius',
           cool_factor: 5,
-          img: 'https://i.redd.it/npq76exuijdz.jpg',
-          owns: true,
-          owner_id: 1
+          img: 'https://o.aolcdn.com/images/dims3/GLOB/legacy_thumbnail/800x450/format/jpg/quality/85/http://www.blogcdn.com/www.autoblog.com/media/2009/05/prius2010_rev000_opt.jpg',
+          owner_id: 1,
+          owns: true
         };
 
       const data = await fakeRequest(app)
@@ -156,12 +152,12 @@ describe('app routes', () => {
       {
         id: 4,
         name: 'Larry',
-        make: 'Ford',
-        model: 'Bronco',
+        make_id: 3,
+        model: 'AE86',
         cool_factor: 9,
-        img: 'https://bringatrailer.com/wp-content/uploads/2019/10/1970_ford_bronco_15732549363ef93835IMG_0235-e1573674055886.jpg?fit=940%2C628',
-        owns: false,
-        owner_id: 1
+        img: 'https://cdn.shopify.com/s/files/1/1063/6350/products/78529309_521411808440697_6383374592261488640_n_8d35f07f-396e-46cd-90e5-798d47fd3c11_1000x1000.jpg?v=1575005512',
+        owner_id: 1,
+        owns: false
       };
 
       const data = await fakeRequest(app)

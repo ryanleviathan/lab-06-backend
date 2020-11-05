@@ -16,17 +16,21 @@ async function run() {
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
-                );           
+                );         
+                CREATE TABLE makes (
+                    id SERIAL PRIMARY KEY,
+                    name VARCHAR(512) NOT NULL
+                );  
                 CREATE TABLE cars (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    make VARCHAR(512) NOT NULL,
+                    make_id INTEGER NOT NULL REFERENCES makes(id),
                     model VARCHAR(512) NOT NULL,
                     cool_factor INTEGER NOT NULL,
                     img VARCHAR(512) NOT NULL,
                     owns BOOLEAN NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
-            );
+                );
         `);
 
     console.log('create tables complete', getEmoji(), getEmoji(), getEmoji());
